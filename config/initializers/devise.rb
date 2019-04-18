@@ -13,6 +13,12 @@ Devise.setup do |config|
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+  config.jwt do |jwt|
+    jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
+    jwt.expiration_time = 1.day.to_i
+  end
+  config.navigational_formats = [:json]
+  # config.navigational_formats = [] # => You need to sign_in or sign_up...
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
