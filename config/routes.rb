@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     scope :v1 do
       devise_for :users, defaults: { format: :json },
         controllers: {
+          registrations: "registrations",
           sessions: 'sessions'
         }
     end
